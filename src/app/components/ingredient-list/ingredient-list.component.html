@@ -1,1 +1,11 @@
-<p>ingredient-list works!</p>
+<div *ngIf="recipes.length > 0">
+  <ul>
+    <li *ngFor="let recipe of recipes">
+      <h3>{{ recipe.name }}</h3>
+      <p>Ingredients: {{ recipe.ingredients.join(', ') }}</p>
+    </li>
+  </ul>
+</div>
+<div *ngIf="recipes.length === 0">
+  <p>No recipes found.</p>
+</div>
