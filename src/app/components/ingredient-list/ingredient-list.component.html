@@ -1,11 +1,18 @@
-<div *ngIf="recipes.length > 0">
+<div *ngIf="formattedRecipes$ | async as recipes; else noData">
   <ul>
     <li *ngFor="let recipe of recipes">
       <h3>{{ recipe.name }}</h3>
-      <p>Ingredients: {{ recipe.ingredients.join(', ') }}</p>
+      <p>Ingredients: {{ recipe.formattedIngredients }}</p>
     </li>
   </ul>
 </div>
-<div *ngIf="recipes.length === 0">
+<ng-template #noData>
   <p>No recipes found.</p>
-</div>
+</ng-template>
+
+
+
+
+
+
+
