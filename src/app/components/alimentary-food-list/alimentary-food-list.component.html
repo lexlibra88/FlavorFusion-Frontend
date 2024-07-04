@@ -1,3 +1,5 @@
+<!-- Enlace para volver a la página principal -->
+<p><a routerLink="/">Go back to Home</a></p>
 <div *ngIf="alimentaryFood$ | async as alimentaryFoods; else noData">
   <ul>
     <li *ngFor="let alimentaryFood of alimentaryFoods">
@@ -9,8 +11,6 @@
 <ng-template #noData>
   <p>No ingredients found.</p>
 </ng-template>
-<!-- Enlace para volver a la página principal -->
-<p><a routerLink="/">Go back to Home</a></p>
 
 
 

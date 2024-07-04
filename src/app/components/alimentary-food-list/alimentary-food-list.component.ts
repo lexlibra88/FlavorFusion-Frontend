@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/service/api.service';
+import { AlimentaryFoodService } from '../../services/alimentary-food-service/alimentary-food.service';
 import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AlimentaryFood } from '../../models/alimentary.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-alimentary-food-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './alimentary-food-list.component.html',
   styleUrl: './alimentary-food-list.component.css'
 })
 export class AlimentaryFoodListComponent implements OnInit {
   alimentaryFood$: Observable<AlimentaryFood[]> = of([]);
 
-  constructor(private apiService: ApiService) {}
+  constructor(private alimentaryFoodService: AlimentaryFoodService) {}
   ngOnInit(): void {
-    this.alimentaryFood$ = this.apiService.getIngredients().pipe(
+    this.alimentaryFood$ = this.alimentaryFoodService.getIngredients().pipe(
       tap((data: AlimentaryFood[]) => {
         console.log('Data fetched:', data);
       }),
