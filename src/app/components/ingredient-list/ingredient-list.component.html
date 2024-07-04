@@ -1,14 +1,16 @@
-<div *ngIf="formattedRecipes$ | async as recipes; else noData">
+<div *ngIf="ingredients$ | async as ingredients; else noData">
   <ul>
-    <li *ngFor="let recipe of recipes">
-      <h3>{{ recipe.name }}</h3>
-      <p>Ingredients: {{ recipe.formattedIngredients }}</p>
+    <li *ngFor="let ingredient of ingredients">
+      <p><b>Category:</b> {{ ingredient.categoryFood }}
+      <b>Name:</b> {{ ingredient.nameAlimentaryFood }}</p>
     </li>
   </ul>
 </div>
 <ng-template #noData>
-  <p>No recipes found.</p>
+  <p>No ingredients found.</p>
 </ng-template>
+<!-- Enlace para volver a la página principal -->
+<p><a routerLink="/">Go back to Home</a></p>
 
 
 

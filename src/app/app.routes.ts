@@ -8,6 +8,5 @@ export const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipeListComponent },
   { path: 'recipes/:id', component: RecipeDetailComponent },
-  //{ path: 'ingredients', component: IngredientListComponent },
-  { path: 'recipes/allIngredients', component: IngredientListComponent },
+  { path: 'ingredients', component: IngredientListComponent },
 ];
